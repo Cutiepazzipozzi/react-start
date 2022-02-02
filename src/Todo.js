@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import styles from "./Todo.module.css"
 
 
@@ -6,6 +6,7 @@ function Todo() {
     const [list, setList] = useState("");
     const [lists, setLists] = useState([])
     const [finished, setFinished] = useState([])
+    const cnt=0;
     const onChange = (e) => {
         setList(e.target.value);
     }
@@ -14,8 +15,10 @@ function Todo() {
         setLists((currentArray) => [...lists, list]);
     }
     const onChecked = (e) => {
-        if (e.target.checked === "true") {
-            return (setFinished((currentArray) => [...finished, e.target.value]));
+        var count = {id:e.target.value, cnt:cnt}
+        if (e.target.checked === Boolean(true)) {
+            setFinished((currentArray) => [...finished, e.target.value]);
+            
         }
     }
 
@@ -47,7 +50,7 @@ function Todo() {
                 </div>
             </div>
 
-
+            
             {console.log(finished)}
 
         </div>
